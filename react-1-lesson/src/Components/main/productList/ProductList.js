@@ -3,18 +3,19 @@ import ProductListItem from "./ProductListItem";
 import PropTypes from "prop-types"
 import sprite from "../../../assets/header/header.svg"
 
-const ProductList = ({ arr }) => {
+
+const ProductList = ({arr}) => {
   return (
-    <>
-       <svg className="logo">
+    <> 
+     <svg className="logo">
       <use href={sprite + "#icon-image"}></use>
       </svg>
-    <ul className="toolsList">
-      {arr.map((item) => (
-        <ProductListItem name={item.name} price={item.price } key={item.id} />
-        ))}
-    </ul>
-   </>
+    <ul className="toysList">
+        {arr.map((item) => (
+          <ProductListItem name={item.name} price={item.price} key={item.id} />
+          ))}
+      </ul>
+    </>
   );
 };
 
