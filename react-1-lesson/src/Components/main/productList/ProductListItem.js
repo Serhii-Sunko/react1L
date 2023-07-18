@@ -4,8 +4,8 @@ import { ProductListItemStyled } from "./ProductListItemStyled";
 
 const ProductListItem = ({ name, price }) => (
   <ProductListItemStyled price={price}>
-    <p className="listItemName">Name:{name}</p>
-    <p className="listItemPrice">Price:{price || 0}</p>
+    <p className="listItemName">Name: {name}</p>
+    <p className="listItemPrice">Price: {price || 0}</p>
   </ProductListItemStyled>
 );
 

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const ProductListItemStyled = styled.li`
-.listItemPrice{
+  .listItemPrice {
     color: ${(props) => (props.price > 20 ? "green" : "red")};
-.listItemName{
+  }
+  .listItemName {
     color: ${(props) => {
       console.log(props);
       return props.theme.current === "white" ? "green" : "red";
     }};
-}`;
+  }
+`;
