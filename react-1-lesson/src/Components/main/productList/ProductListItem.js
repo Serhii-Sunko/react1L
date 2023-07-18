@@ -1,18 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types"
 
-const ProductListItem = ({ item }) => {
+const ProductListItem = ({ name, price }) => {
   <li>
-    <p>Name:{item.name}</p>
-    <p>Price:{item.price}</p>
+    <p>Name:{name}</p>
+    <p className={price>20 ?"blueStyle" : "redStyle"} > Price : {price || 0} </p>
   </li>;
 };
 
 export default ProductListItem;
 
 ProductListItem.proptypes = {
-  item: PropTypes.shape({
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     price: PropTypes.number,
-  }),
 }

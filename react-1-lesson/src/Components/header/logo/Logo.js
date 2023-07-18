@@ -1,12 +1,15 @@
 import React from "react";
 import sprite from "../../../assets/header/header.svg";
+import { LogoStyled } from "./LogoStyled";
 
 <logo />;
 const Logo = () => {
   return (
-    <svg>
+    <LogoStyled>
+    <svg className="logo">
       <use href={sprite + "#icon-image"}></use>
-    </svg>
+      </svg>
+      </LogoStyled>
   );
 };
 

@@ -1,17 +1,18 @@
 import React from "react";
 import { mainRoutes } from "../../../routes/mainRutes";
+import { NavigationStyled } from "./NavigationStyled";
 
 const Navigation = () => {
   return (
-    <nav>
+    <NavigationStyled>
       <ul className="headerList">
         {mainRoutes.map(({ name, path }) => (
-          <li key={name}>
-            <a href={path}>{name}</a>
+          <li key={name} className="headerListItem">
+            <a className="headerListLink" href={path}>{name}</a>
           </li>
         ))}
       </ul>
-    </nav>
+    </NavigationStyled>
   );
 };
 
