@@ -5,11 +5,11 @@ const Section = ({ children, title, isNew = false }) => {
       <h2>{title}</h2>
       {isNew ? (
         <>
-          <p>New category</p>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p className="test">New category</p>
+          <p className="test">Lorem ipsum dolor sit amet.</p>
         </>
       ) : (
-        <p>Old category</p>
+        <p className="test">Old category</p>
       )}
       {children}
     </section>

@@ -5,15 +5,17 @@ import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-color: ${({theme})=>(theme=== "white" ? "white" : "black")};
-}`
+  background-color: ${({ current }) =>
+    current === "white" ? "white" : "black"};
+}`;
 
-const theme = "white";
+const current = "white";
+// const current = "dark";
 
 const App = () => {
   return (
-    <ThemeProvider theme={{theme}} >
-      <GlobalStyle theme={theme} />
+    <ThemeProvider theme={{ current }}>
+      <GlobalStyle current={current} />
       <Header />
       <Main />
     </ThemeProvider>

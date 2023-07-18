@@ -10,7 +10,7 @@ const ProductList = ({arr}) => {
      <svg className="logo">
       <use href={sprite + "#icon-image"}></use>
       </svg>
-    <ul className="toysList">
+    <ul className="toysList test">
         {arr.map((item) => (
           <ProductListItem name={item.name} price={item.price} key={item.id} />
           ))}

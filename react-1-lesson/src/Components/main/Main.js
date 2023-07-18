@@ -19,7 +19,7 @@ const Main = () => {
         </Section>
       </div>
 
-      <p>
+      <p className="test">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum eveniet
         neque consequuntur distinctio tempora expedita atque, eum sint ullam
         quam. Eos repellendus nemo incidunt iste. Sapiente a aut voluptates
