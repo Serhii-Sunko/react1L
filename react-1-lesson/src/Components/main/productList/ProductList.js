@@ -1,5 +1,6 @@
 import React from "react";
 import ProductListItem from "./ProductListItem";
+import PropTypes from "prop-types"
 
 const ProductList = ({ arr }) => {
   return (
@@ -12,3 +13,7 @@ const ProductList = ({ arr }) => {
 };
 
 export default ProductList;
+
+ProductList.propTypes = {
+  arr: PropTypes.array,
+}

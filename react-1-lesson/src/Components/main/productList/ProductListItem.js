@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 
 const ProductListItem = ({ item }) => {
   <li>
@@ -8,3 +9,10 @@ const ProductListItem = ({ item }) => {
 };
 
 export default ProductListItem;
+
+ProductListItem.proptypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string,
+    price: PropTypes.number,
+  }),
+}
