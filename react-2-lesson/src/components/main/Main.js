@@ -5,7 +5,7 @@ import { MainWrapper } from "./MainStyled";
 const Main = () => {
   return (
     <MainWrapper>
-      <Test />
+      <Test text="some text" />
     </MainWrapper>
   );
 };
