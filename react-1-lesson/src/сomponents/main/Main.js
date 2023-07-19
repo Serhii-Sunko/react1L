@@ -3,7 +3,7 @@ import ireland from "../../images/main/main.jpg";
 import toys from "../../data/toys/toys.json";
 import tools from "../../data/tools/tools.json";
 import ProductList from "./productList/ProductList";
-import Section from "../section/Section";
+import Section from "../materials/Section";
 
 const Main = () => {
   return (
