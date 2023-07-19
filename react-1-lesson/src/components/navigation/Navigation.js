@@ -1,6 +1,6 @@
 import React from "react";
 import { mainRoutes } from "../../routes/mainRoutes";
-import { NavigationWrapper } from "./NavigationWrapper";
+import { NavigationWrapper } from "./NavigationStyled";
 
 const Navigation = () => {
   return (

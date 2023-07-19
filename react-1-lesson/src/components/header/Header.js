@@ -1,6 +1,8 @@
 import React from "react";
 import Navigation from "../navigation/Navigation";
-import { HeaderWrapper } from "./HeaderWrapper";
+import { HeaderWrapper } from "./HeaderStyled";
+
+
 
 
 const Header = () => {

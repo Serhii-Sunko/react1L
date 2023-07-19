@@ -5,9 +5,15 @@ export const NavigationWrapper = styled.nav`
     display: flex;
     align-items: center;
     list-style: none;
-}
-.navigationListItem:not(:last-child){
-    margin-right: 20px; 
+    text-transform: uppercase;
     
 }
-}`
+
+.navigationListItem {
+    color: cornflowerblue;  
+}
+
+.navigationListItem:not(:last-child){
+    margin-right: 20px;  
+}
+`
