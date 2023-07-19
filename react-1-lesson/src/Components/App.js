@@ -9,8 +9,8 @@ body {
     current === "white" ? "white" : "black"};
 }`;
 
-const current = "white";
-// const current = "dark";
+// const current = "white";
+const current = "dark";
 
 const App = () => {
   return (
