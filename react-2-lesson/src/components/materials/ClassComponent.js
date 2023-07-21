@@ -44,7 +44,14 @@ class ClassComponent extends Component {
         return (
             <>
                 {sections.map((section) => (
-                    <SectionComponent section={section} key={section} visibility={this.state[section].visibility} items={this.state[section].items} />
+                    <SectionComponent
+                        section={section}
+                        key={section}
+                        visibility={this.state[section].visibility}
+                        items={this.state[section].items}
+                        setVisibility={this.setVisibility}
+                        addItem={this.addItem}
+                    />
                     ))}
             </>
         )

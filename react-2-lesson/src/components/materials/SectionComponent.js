@@ -9,7 +9,7 @@ const SectionComponent = ({section, setVisibility, addItem, visibility, items}) 
                         </button>
                         {visibility && (
                             <>
-                                <List arr={items} />
+                                <List arr={items}/>
                                 <button type="button" onClick={addItem} name={section}>
                                     {"Add new" + " " + section.slice(0, section.length - 1)}
                                 </button>
