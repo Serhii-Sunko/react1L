@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Lectors = ({ arr}) => {
+const List = ({arr}) => {
     return (
         <ul>
             {arr.map((item) => (<li>{item.name}</li>)) }
@@ -9,4 +9,4 @@ const Lectors = ({ arr}) => {
     );
 }
 
-export default Lectors;
+export default List;

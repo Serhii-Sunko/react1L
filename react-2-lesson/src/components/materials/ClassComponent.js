@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import List from './Lectors';
+import SectionComponent from './SectionComponent';
 
 const newData = {
     "student": { name: "Vlad" },
-    "lector": { name: "Vlada" }
+    "lector": { name: "Vlada" },
+    "mentor": {name: "Olga"}
 };
 const sections = ["students", "lectors", "mentors"];
 class ClassComponent extends Component {
@@ -43,19 +44,8 @@ class ClassComponent extends Component {
         return (
             <>
                 {sections.map((section) => (
-                    <section>
-                        <button type="button" onClick={this.setVisibility} name={section}>
-                            {section[0].toUpperCase() + section.slice(1)}
-                        </button>
-                        {this.state[section].visibility && (
-                            <>
-                                <List arr={this.state[section].items} />
-                                <button type="button" onClick={this.addItem} name={section}>
-                                    {"Add new" + " " + section.slice(0, section.length - 1)}
-                                </button>
-                            </>
-                        )}
-                    </section >))}
+                    <SectionComponent section={section} key={section} visibility={this.state[section].visibility} items={this.state[section].items} />
+                    ))}
             </>
         )
     }
