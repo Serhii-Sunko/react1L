@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import List from './Lectors';
 
-const newStudent = { name: "Vlad" };
-const sections =["students", "lectors"]
+const newData = {
+    "student": { name: "Vlad" },
+    "lector": { name: "Vlada" }
+};
+const sections = ["students", "lectors", "mentors"];
 class ClassComponent extends Component {
     state = {
         students: {
@@ -27,10 +30,11 @@ class ClassComponent extends Component {
             },
         }));
     };
-    addStudent = () => {
+    addItem = (event) => {
+        const {name}=event.target
         this.setState((prevState) => ({
-            students: {
-                ...prevState.student, items: [...prevState.student.items, newStudent]
+           [name]: {
+                ...prevState[name], items: [...prevState[name].items, newData[name.slice(0, name.length - 1)]]
         
             },
         }));
@@ -41,13 +45,13 @@ class ClassComponent extends Component {
                 {sections.map((section) => (
                     <section>
                         <button type="button" onClick={this.setVisibility} name={section}>
-                            {section[0].toUpperCase + section.slice(1)}
+                            {section[0].toUpperCase() + section.slice(1)}
                         </button>
                         {this.state[section].visibility && (
                             <>
                                 <List arr={this.state[section].items} />
-                                <button type="button" onClick={this.addItem}>
-                                    {"Add" + " " + section.slice(0, section.length - 1)}
+                                <button type="button" onClick={this.addItem} name={section}>
+                                    {"Add new" + " " + section.slice(0, section.length - 1)}
                                 </button>
                             </>
                         )}
