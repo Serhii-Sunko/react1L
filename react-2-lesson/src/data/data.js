@@ -1,7 +1,5 @@
-const text = "Hello Component";
-
+const text ="Hello Component*"
 const data = {
-  text,
-};
-
+    text,
+}
 export default data;
