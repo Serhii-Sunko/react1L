@@ -12,7 +12,7 @@ export const signUp = async (credentials) => {
     });
     console.log(response);
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 

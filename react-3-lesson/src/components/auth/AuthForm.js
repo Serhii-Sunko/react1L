@@ -5,19 +5,25 @@ class Auth extends Component {
   state = {
     email: "",
     password: "",
+    // displayName: ""
   };
   onHandleChange = (e) => {
-    const { name, value } = e.target.value;
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-  onHandlesSubmite = (e) => {
+  onHandlesSubmit = async (e) => {
     e.preventDefault();
-    signUp(this.state);
+    try {
+      await signUp(this.state);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
   render() {
     const { email, password } = this.state;
     return (
-      <form onSubmite={this.onHandlesSubmite}>
+      <form onSubmit={this.onHandlesSubmit}>
         <label>
           Email
           <input
