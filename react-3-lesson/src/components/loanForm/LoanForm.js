@@ -7,6 +7,11 @@ const loanProducts = [
   },
   { key: "used", name: "вторичка" },
 ];
+const banksCase = [
+  { key: "Alfa", name: "Альфа" },
+  { key: "Mono", name: "Моно" },
+  { key: "Privat", name: "Приват" },
+];
 
 const loanSubProducts = [
   {
@@ -31,9 +36,23 @@ class LoanForm extends Component {
     price: "",
     product: loanProducts[0].key,
     subProduct: loanSubProducts[0].subProductName,
+    bankName: [banksCase[0].key],
   };
   onHandleChange = (e) => {
     const { name, value } = e.target;
+    if (e.target.type === "checkbox") {
+      const index = this.state[name].indexOf(value);
+      if (index === -1) {
+        this.setState((prev) => ({ [name]: [...prev[name], value] }));
+      } else {
+        this.setState((prev) => {
+          return {
+            [name]: prev[name].filter((bank) => bank !== value),
+          };
+        });
+      }
+      return;
+    }
     this.setState({ [name]: value });
   };
   render() {
@@ -51,16 +70,37 @@ class LoanForm extends Component {
           />
         </label>
         {/*=============== checkBox ================*/}
-        Продукты
+        {banksCase.map(({ key, name }) => (
+          <label key={key}>
+            {name}
+            <input
+              type="checkbox"
+              name="bankName"
+              value={key}
+              onChange={this.onHandleChange}
+              checked={this.state.bankName.includes(key)}
+            />
+          </label>
+        ))}
+        {/*=============== radio ================*/}
+        Продукты:
         {loanProducts.map(({ key, name }) => (
           <label key={key}>
-            <input type="radio" value={key} />
+            {name}
+            <input
+              type="radio"
+              value={key}
+              checked={key === this.state.product}
+              onChange={this.onHandleChange}
+              name="product"
+            />
           </label>
         ))}
         <label>
-          Субпродукт
+          {/*=============== selector ================*/}
+          Субпродукты:
           <select onChange={this.onHandleChange} name="subProduct">
-            {loanProducts.map(({ subProductId, subProductName, name }) => (
+            {loanSubProducts.map(({ subProductId, subProductName, name }) => (
               <option key={subProductId} value={subProductName}>
                 {name}
               </option>
