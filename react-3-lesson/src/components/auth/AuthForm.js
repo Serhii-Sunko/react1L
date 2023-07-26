@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { signUp } from "../../services/auth";
 
 class Auth extends Component {
   state = {
@@ -9,10 +10,14 @@ class Auth extends Component {
     const { name, value } = e.target.value;
     this.setState({ [name]: value });
   };
+  onHandlesSubmite = (e) => {
+    e.preventDefault();
+    signUp(this.state);
+  };
   render() {
     const { email, password } = this.state;
     return (
-      <form>
+      <form onSubmite={this.onHandlesSubmite}>
         <label>
           Email
           <input
