@@ -7,4 +7,15 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   padding: 0 20px;
   height: 60px;
+
+  .iconMenu {
+    width: 40px;
+    height: 40px;
+    fill: cornflowerblue;
+
+    &:hover {
+      fill: red;
+      cursor: pointer;
+    }
+  }
 `;
