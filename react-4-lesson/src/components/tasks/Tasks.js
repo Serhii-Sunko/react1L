@@ -9,6 +9,23 @@ class Tasks extends Component {
     tasks: [],
     isTaskFormOpen: false,
   };
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.isTaskFormOpen !== this.state.isTaskFormOpen) {
+      return true;
+    }
+    if (nextState.tasks !== this.state.tasks) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+    if (this.state.tasks !== prevState.tasks)
+      this.setState((prev) => ({ tasks2: prev.tasks }));
+  }
+
   addTask = (task) => {
     this.setState((prev) => ({
       tasks: [...prev.tasks, { ...task, id: uuidv4() }],

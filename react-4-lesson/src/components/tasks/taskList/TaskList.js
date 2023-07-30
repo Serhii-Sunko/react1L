@@ -1,6 +1,6 @@
 import React from "react";
 const TaskListItem = ({ task, removeTask }) => {
-  const removeItem = (e) => removeTask(task.id);
+  const removeItem = () => removeTask(task.id);
   return (
     <li>
       <h3>{task.name}</h3>
