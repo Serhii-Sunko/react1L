@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import TaskForm from "./taskForm/TaskForm";
 import TaskList from "./taskList/TaskList";
 import Modal from "../modal/Modal";
+import { v4 as uuidv4 } from "uuid";
 
 class Tasks extends Component {
   state = {
-    tasks: [{ name: "Task1", description: "Hello" }],
+    tasks: [],
     isTaskFormOpen: false,
   };
   addTask = (task) => {
-    this.setState((prev) => ({ tasks: [...prev.tasks, task] }));
+    this.setState((prev) => ({
+      tasks: [...prev.tasks, { ...task, id: uuidv4() }],
+    }));
   };
 
   removeTask = (id) => {
@@ -36,7 +39,7 @@ class Tasks extends Component {
           </Modal>
         )}
         <hr />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} removeTask={this.removeTask} />
       </div>
     );
   }

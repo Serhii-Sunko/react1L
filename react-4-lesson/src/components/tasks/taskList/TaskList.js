@@ -1,13 +1,22 @@
 import React from "react";
+const TaskListItem = ({ task, removeTask }) => {
+  const removeItem = (e) => removeTask(task.id);
+  return (
+    <li>
+      <h3>{task.name}</h3>
+      <p>{task.description}</p>
+      <button type="button" id={task.id} onClick={removeItem}>
+        DELETE
+      </button>
+    </li>
+  );
+};
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, removeTask }) => {
   return (
     <ul>
-      {tasks.map((task, idx) => (
-        <li key={idx}>
-          <h3>{task.name}</h3>
-          <p>{task.description}</p>
-        </li>
+      {tasks.map((task) => (
+        <TaskListItem key={task.id} task={task} removeTask={removeTask} />
       ))}
     </ul>
   );
