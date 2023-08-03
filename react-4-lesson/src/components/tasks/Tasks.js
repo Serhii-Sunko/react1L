@@ -32,7 +32,7 @@ class Tasks extends Component {
   addTask = async(task) => {
     try {
       const id = await addNewTask(task);
-      this.setState((prev)=> ({tasks: [...prev.tasks, {id, ...task}]}))
+      this.setState(prev => ({ tasks: [...prev.tasks, { id, ...task }] }));
     } catch (error) {
       this.setState({error: "Something went wrong!"})
     }
