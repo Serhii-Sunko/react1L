@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import TaskForm from "./taskForm/TaskForm";
 import TaskList from "./taskList/TaskList";
 import Modal from "../modal/Modal";
-import { v4 as uuidv4 } from "uuid";
+import { addNewTask } from "../../services/tasks";
 
 class Tasks extends Component {
   state = {
     tasks: [],
     isTaskFormOpen: false,
+    error: "",
   };
   shouldComponentUpdate(nextProps, nextState) {
     if (nextState.isTaskFormOpen !== this.state.isTaskFormOpen) {
@@ -20,16 +21,22 @@ class Tasks extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
-    if (this.state.tasks !== prevState.tasks)
-      this.setState((prev) => ({ tasks2: prev.tasks }));
-  }
+// =================== for lesson lifeCircle ===========================
 
-  addTask = (task) => {
-    this.setState((prev) => ({
-      tasks: [...prev.tasks, { ...task, id: uuidv4() }],
-    }));
+  // componentDidUpdate(prevProps, prevState) {
+  //   localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+  //   if (this.state.tasks !== prevState.tasks)
+  //     this.setState((prev) => ({ tasks2: prev.tasks }));
+  // }
+
+  addTask = async(task) => {
+    try {
+      const id = await addNewTask(task);
+      this.setState((prev)=> ({tasks: [...prev.tasks, {id, ...task}]}))
+    } catch (error) {
+      this.setState({error: "Something went wrong!"})
+    }
+  
   };
 
   removeTask = (id) => {
